@@ -18,3 +18,22 @@
 
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
+# Modify default IP
+sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generate
+
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
+rm -rf ./package/zy/theme
+rm -rf ./package/zy/luci-app-wrtbwmon-zh
+rm -rf ./package/zy/wrtbwmon
+# rm -rf ./package/zy/adguardhome
+rm -rf ./feeds/packages/net/adguardhome
+rm -rf ./feeds/packages/net/smartdns
+rm -rf ./feeds/packages/net/mosdns
+rm -rf ./feeds/luci/applications/luci-app-passwall
+rm -rf ./feeds/luci/applications/luci-app-ssr-plus
+rm -rf ./feeds/luci/applications/luci-app-openclash
+rm -rf ./feeds/luci/applications/luci-app-smartdns
+rm -rf ./feeds/luci/applications/luci-app-mihomo
+# rm -rf ./feeds/luci/applications/luci-app-adbyby-plus
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
