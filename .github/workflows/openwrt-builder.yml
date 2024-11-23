@@ -64,6 +64,16 @@ jobs:
         sudo chown $USER:$GROUPS /workdir
 
 
+
+    - name: Combine Disks(合并磁盘)
+      uses: easimon/maximize-build-space@master
+      with:
+        swap-size-mb: 1024
+        temp-reserve-mb: 100
+        root-reserve-mb: 1024
+
+
+
     - name: 克隆固件源码
       id: clone
       run: |
@@ -71,6 +81,12 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
+
+
+
+
+
+
 
 
     - name: Generate Variables
